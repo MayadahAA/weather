@@ -13,23 +13,21 @@ window.addEventListener('load', () => {
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     const city = input.value;
-    const url = `https://api.weatherapi.com/v1/current.json?key=4df6dc6728be49d79f7223328232703&q=${city}&lang=ar`;
+    const url = `https://api.weatherapi.com/v1/forecast.json?key=56d3cce10e4140139c522357230104&q=${city}&lang=ar`;
     fetch(url)
         .then(response => response.json())
         .then(data => {
             const {location: {name, country}, current: {temp_c, humidity, condition: {text, icon}, wind_kph}} = data;
             const weatherHTML = `
                 <h2>${name}, ${country}</h2>
-                <p>${text}</p><img src="${icon}" alt="weather icon">
+                <p>${text}</p> <img src="${icon}" alt="weather icon">
                 <p>درجة الحرارة: ${temp_c} &#8451;</p>
                 <p>الرطوبة: ${humidity}%</p>
                 <p>سرعة الرياح: ${wind_kph} kph</p>
-                
             `;
             weatherInfo.innerHTML = weatherHTML;
             weatherInfo.style.display = 'block';
             // Save the current state of the weather information div
             localStorage.setItem('weatherInfoState', weatherHTML);
         })
-        .catch(error => console.log(error));
-});
+        .catch(error => console.log(error));});
