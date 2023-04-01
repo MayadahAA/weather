@@ -3,13 +3,13 @@ const input = document.querySelector('#city');
 const weatherInfo = document.querySelector('#weather-info');
 
 // Retrieve the saved state and set the weather information div to that state
-window.addEventListener('load', () => {
-  const savedState = localStorage.getItem('weatherInfoState');
-  if (savedState) {
-    weatherInfo.innerHTML = savedState;
-    weatherInfo.style.display = 'block';
-  }
-});
+// window.addEventListener('load', () => {
+//   const savedState = localStorage.getItem('weatherInfoState');
+//   if (savedState) {
+//     weatherInfo.innerHTML = savedState;
+//     weatherInfo.style.display = 'block';
+//   }
+// });
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     const city = input.value;
